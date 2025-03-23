@@ -9,14 +9,27 @@ class Database:
         """Create the database and tables if they don't exist."""
         with sqlite3.connect(self.db_file) as conn:
             cursor = conn.cursor()
+            # Create users table
+            cursor.execute(
+                """
+                CREATE TABLE IF NOT EXISTS users (
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    username TEXT NOT NULL UNIQUE,
+                    password TEXT NOT NULL,
+                    created_at TEXT DEFAULT CURRENT_TIMESTAMP
+                )
+            """
+            )
             # Create exercises table
             cursor.execute(
                 """
                 CREATE TABLE IF NOT EXISTS exercises (
                     id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    user_id INTEGER NOT NULL,
                     date TEXT NOT NULL,
                     exercise TEXT NOT NULL,
-                    duration INTEGER NOT NULL
+                    duration INTEGER NOT NULL,
+                    FOREIGN KEY (user_id) REFERENCES users(id)
                 )
             """
             )
@@ -25,8 +38,10 @@ class Database:
                 """
                 CREATE TABLE IF NOT EXISTS calories (
                     id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    user_id INTEGER NOT NULL,
                     date TEXT NOT NULL,
-                    calories INTEGER NOT NULL
+                    calories INTEGER NOT NULL,
+                    FOREIGN KEY (user_id) REFERENCES users(id)
                 )
             """
             )
