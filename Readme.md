@@ -29,7 +29,7 @@ The purpose of this project is to:
 ## How to Run
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/fitness-tracker.git
+   git clone https://github.com/rana-suraj/fitness-tracker.git
 
 
 ## youtube link:
