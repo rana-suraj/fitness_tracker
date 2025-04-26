@@ -32,6 +32,9 @@ The purpose of this project is to:
    git clone https://github.com/your-username/fitness-tracker.git
 
 
+## youtube link:
+https://youtu.be/CrYBl96Bq44
+
 Navigate to the src directory:
 
 ## bash
