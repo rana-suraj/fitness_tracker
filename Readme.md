@@ -30,6 +30,8 @@ The purpose of this project is to:
 1. Clone the repository:
    ```bash
    git clone https://github.com/rana-suraj/fitness-tracker.git
+   cd src
+   python main.py
 
 
 ## youtube link:
